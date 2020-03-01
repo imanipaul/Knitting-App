@@ -37,7 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #app
+    'app',
+
+    #authentication
+    'rest_framework.authtoken',
+
+    #rest_framework
+    'rest_framework',
 ]
+
+# REST_FRAMEWORK = {
+#     #use Django's standard 'django.contrib.auth' permissions,
+#     #or allow read-only access for unauthenticated users.
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
