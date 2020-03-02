@@ -10,6 +10,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'password')
 
+class NeedleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Needle
+        fields = ('id', 'size', 'length', 'in_use', 'circular')
+
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
@@ -34,3 +39,8 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = ('id', 'name', 'row', 'repeat', 'pattern', 'yarn', 'note')
+        extra_kwargs = {
+            'pattern': {'required': False},
+            'yarn': {'required': False},
+            'note': {'required': False}
+            }

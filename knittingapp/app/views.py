@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import routers, serializers, viewsets, status
 from django.contrib.auth.models import User
-from .serializer import UserSerializer, NoteSerializer, PatternSerializer, YarnSerializer, ProjectSerializer
+from .serializer import UserSerializer, NoteSerializer, PatternSerializer, YarnSerializer, ProjectSerializer, NeedleSerializer
 from .models import Yarn, Note, Pattern, Project, Needle
 from rest_framework import filters
 
