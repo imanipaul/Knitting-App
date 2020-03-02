@@ -14,8 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.contrib.auth.models import User
+from app.views import UserViewSet, YarnViewSet, NoteViewSet, PatternViewSet, NeedleViewSet, ProjectViewSet
+from rest_framework.routers import DefaultRouter
+
+from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
+
+router = DefaultRouter(trailing_slash=False)
+
+router.register(r'api/users', UserViewSet, basename='user')
+router.register(r'api/yarns', YarnViewSet, basename='yarn')
+router.register(r'api/notes', NoteViewSet, basename='note')
+router.register(r'api/patterns', PatternViewSet, basename='pattern')
+router.register(r'api/needles', NeedleViewSet, basename='needle')
+router.register(r'api/projects', ProjectViewSet, basename='project')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'', include(router.urls)),
+    path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-token-auth/', obtain_auth_token, name='api-token-auth')
 ]
