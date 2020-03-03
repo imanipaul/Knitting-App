@@ -23,6 +23,7 @@ class Project(models.Model):
     name = models.CharField(max_length = 200)
     row = models.IntegerField()
     repeat = models.IntegerField()
+    needle = models.OneToOneField('Needle', on_delete=models.CASCADE, blank=True, null=True)
     pattern = models.ForeignKey('Pattern', on_delete=models.CASCADE, blank=True, null=True)
     yarn = models.OneToOneField('Yarn', on_delete=models.CASCADE, blank=True, null=True)
     note = models.OneToOneField('Note', on_delete=models.CASCADE, blank=True, null=True)

@@ -32,15 +32,17 @@ class YarnSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(serializers.ModelSerializer):
     pattern = PatternSerializer(read_only=True)
-    yarn = YarnSerializer(many=True, read_only=True)
+    yarn = YarnSerializer( read_only=True)
     note = NoteSerializer(read_only=True)
+    needle = NeedleSerializer(read_only=True)
 
 
     class Meta:
         model = Project
-        fields = ('id', 'name', 'row', 'repeat', 'pattern', 'yarn', 'note')
+        fields = ('id', 'name', 'row', 'repeat', 'pattern', 'yarn', 'note', 'needle')
         extra_kwargs = {
             'pattern': {'required': False},
             'yarn': {'required': False},
-            'note': {'required': False}
+            'note': {'required': False},
+            'needle': {'required': False}
             }
