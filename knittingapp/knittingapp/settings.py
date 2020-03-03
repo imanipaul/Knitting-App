@@ -93,6 +93,7 @@ WSGI_APPLICATION = 'knittingapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#Local Environment
 DATABASES = {
      'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -103,6 +104,7 @@ DATABASES = {
     'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -142,3 +144,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
