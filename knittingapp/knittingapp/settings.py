@@ -95,15 +95,22 @@ WSGI_APPLICATION = 'knittingapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 #Local Environment
+# DATABASES = {
+#      'default': {
+#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     'NAME': 'knitting_app',
+#     'USER': 'postgres',
+#     'PASSWORD': 'postgres',
+#     'HOST': 'localhost',
+#     'PORT': '5432',
+#     }
+# }
+
+#Production environment
 DATABASES = {
-     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'knitting_app',
-    'USER': 'postgres',
-    'PASSWORD': 'postgres',
-    'HOST': 'localhost',
-    'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
