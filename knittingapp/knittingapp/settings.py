@@ -95,25 +95,11 @@ WSGI_APPLICATION = 'knittingapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#Local Environment
-# DATABASES = {
-#      'default': {
-#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     'NAME': 'knitting_app',
-#     'USER': 'postgres',
-#     'PASSWORD': 'postgres',
-#     'HOST': 'localhost',
-#     'PORT': '5432',
-#     }
-# }
-
-#Production environment
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
 }
-
 
 
 # Password validation
@@ -156,10 +142,3 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-
-
